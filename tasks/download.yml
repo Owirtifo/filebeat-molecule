@@ -1,0 +1,13 @@
+---
+- name: "Download Filebeat's rpm"
+  copy:
+    src: "https://files.infowatch.com/index.php/s/PXJ8BrUUyTAkFO1/download"
+    mode: 0644
+    dest: "files/filebeat-{{ filebeat_version }}-x86_64.rpm"
+  delegate_to: localhost
+  when: filebeat_install_type == 'remote'
+- name: Copy Filebeat to managed node
+  copy:
+    src: "files/filebeat-{{ filebeat_version }}-x86_64.rpm"
+    mode: 0644
+    dest: "/tmp/filebeat-{{ filebeat_version }}-x86_64.rpm"
