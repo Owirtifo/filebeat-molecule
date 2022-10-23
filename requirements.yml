@@ -1,0 +1,4 @@
+---
+  - src: git@github.com:Owirtifo/filebeat-molecule.git
+    scm: git
+    name: filebeat-molecule
