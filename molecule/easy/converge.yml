@@ -2,6 +2,6 @@
 - name: Converge
   hosts: all
   tasks:
-    - name: "Include filebeat-role"
+    - name: "Include filebeat role"
       ansible.builtin.include_role:
-        name: "filebeat-role"
+        name: "filebeat-molecule"
