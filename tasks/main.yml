@@ -10,4 +10,3 @@
 - include_tasks: install.yml
 - import_tasks: configure.yml
 - import_tasks: module.yml
-- import_tasks: dashboard.yml
