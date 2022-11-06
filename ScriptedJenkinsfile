@@ -1,0 +1,14 @@
+node("linux"){
+    stage("Git checkout"){
+        git 'git@github.com:aragastmatb/example-playbook.git'
+    }
+    stage("Run playbook"){
+        boolean status = Boolean.getBoolean(prod_run);
+        if (status){
+            sh 'ansible-playbook site.yml -i inventory/prod.yml'
+        }
+        else{
+            sh 'ansible-playbook site.yml -i inventory/prod.yml -vvv --check --diff'
+        }
+    }
+}
