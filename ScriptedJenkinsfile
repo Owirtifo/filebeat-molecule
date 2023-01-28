@@ -3,7 +3,7 @@ node("linux"){
         git 'git@github.com:aragastmatb/example-playbook.git'
     }
     stage("Run playbook"){
-        boolean status = Boolean.getBoolean(prod_run);
+        boolean status = Boolean.valueOf(prod_run);
         if (status){
             sh 'ansible-playbook site.yml -i inventory/prod.yml'
         }
